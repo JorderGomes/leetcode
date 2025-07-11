@@ -148,5 +148,119 @@ Para executar este código Java, você precisará de uma classe com o método `m
     ```
 
     Este comando primeiro compila o arquivo `Main.java` (criando `Main.class` e `Solution.class`) e, se a compilação for bem-sucedida, executa o programa usando a classe `Main`.
+-----
 
+## Palindrome Number
+
+Este repositório apresenta duas soluções para o problema "Palindrome Number" do LeetCode, utilizando abordagens e linguagens de programação diferentes. O objetivo é explorar como a natureza de cada linguagem pode influenciar a forma como um problema é resolvido, especialmente quando se trata de manipulação de números e strings. Uma solução tira proveito da facilidade de manipulação de strings em Python, enquanto a outra em Java utiliza operações aritméticas para demonstrar uma abordagem sem conversão para string.
+
+-----
+
+### Solução implementada em Python
+
+A solução em Python adota uma abordagem direta e elegante, tirando proveito da flexibilidade da linguagem para manipulação de **strings**. Primeiro, verifica se o número `x` é negativo; se for, retorna `False` imediatamente, pois números negativos não podem ser palíndromos (o sinal `-` quebra a simetria). Em seguida, converte o número `x` para uma string. A parte central da solução é o fatiamento `[::-1]`, que cria uma versão invertida da string. Essa string invertida é então convertida de volta para um inteiro. Finalmente, compara-se o número original `x` com sua versão invertida. Se forem iguais, o número é um palíndromo.
+
+**Código:**
+
+```python
+class Solution(object):
+    def isPalindrome(self, x):
+        if x < 0:
+            return False
+        reversed_x = int(str(x)[::-1])
+        return x == reversed_x
+```
+
+**Como executar o código Python:**
+
+1.  Salve o código acima em um arquivo chamado, por exemplo, `palindrome_python.py`.
+2.  Para testar a solução, você pode adicionar algumas chamadas de teste ao final do arquivo:
+    ```python
+    # Adicione isso ao final do seu arquivo palindrome_python.py para testar
+    if __name__ == "__main__":
+        sol = Solution()
+        print(f"121 é palíndromo? {sol.isPalindrome(121)}")    # Saída esperada: True
+        print(f"-121 é palíndromo? {sol.isPalindrome(-121)}") # Saída esperada: False
+        print(f"10 é palíndromo? {sol.isPalindrome(10)}")     # Saída esperada: False
+        print(f"0 é palíndromo? {sol.isPalindrome(0)}")       # Saída esperada: True
+    ```
+3.  Abra seu terminal ou prompt de comando.
+4.  Navegue até o diretório onde o arquivo `palindrome_python.py` está salvo.
+5.  Execute o script com o comando:
+    ```bash
+    python palindrome_python.py
+    ```
+
+-----
+
+### Solução implementada em Java
+
+A solução em Java resolve o problema utilizando exclusivamente **operações aritméticas**, sem converter o número para uma string. Assim como na solução Python, ela primeiro verifica se o número é negativo, retornando `false` nesse caso. A lógica principal envolve construir o número reverso dígito por dígito. Isso é feito em um *loop* `while`: a cada iteração, o último dígito do `original_x` é extraído usando o operador de módulo (`% 10`). Esse dígito é então adicionado ao `reversed_x`, que é construído multiplicando-o por 10 e adicionando o novo dígito. Por fim, o `original_x` é reduzido dividindo-o por 10 (divisão inteira). O *loop* continua até que `original_x` se torne 0. Ao final, o número original é comparado com o `reversed_x` para determinar se é um palíndromo.
+
+**Código:**
+
+```java
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        int reversed_x = 0;
+        int original_x = x;
+        while (original_x > 0) {
+            int digit = original_x % 10;
+            reversed_x = reversed_x * 10 + digit;
+            original_x /= 10;
+        }
+        return x == reversed_x;
+    }
+}
+```
+
+**Como executar o código Java:**
+
+Para executar este código Java, você precisará de uma classe com o método `main` para testar a `Solution`.
+
+1.  Crie um arquivo chamado `Main.java` e cole o seguinte código (incluindo a classe `Solution` acima):
+
+    ```java
+    class Solution {
+        public boolean isPalindrome(int x) {
+            if (x < 0) {
+                return false;
+            }
+            int reversed_x = 0;
+            int original_x = x;
+            while (original_x > 0) {
+                int digit = original_x % 10;
+                reversed_x = reversed_x * 10 + digit;
+                original_x /= 10;
+            }
+            return x == reversed_x;
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Solution sol = new Solution();
+
+            System.out.println("121 é palíndromo? " + sol.isPalindrome(121));    // Saída esperada: true
+            System.out.println("-121 é palíndromo? " + sol.isPalindrome(-121)); // Saída esperada: false
+            System.out.println("10 é palíndromo? " + sol.isPalindrome(10));     // Saída esperada: false
+            System.out.println("0 é palíndromo? " + sol.isPalindrome(0));       // Saída esperada: true
+        }
+    }
+    ```
+
+2.  Abra seu terminal ou prompt de comando.
+
+3.  Navegue até o diretório onde você salvou o arquivo `Main.java`.
+
+4.  Execute o seguinte comando para compilar e executar o código em uma única linha:
+
+    ```bash
+    javac Main.java && java Main
+    ```
+
+    Este comando primeiro compila o arquivo `Main.java` (criando `Main.class` e `Solution.class`) e, se a compilação for bem-sucedida, executa o programa usando a classe `Main`.
 -----
