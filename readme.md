@@ -264,3 +264,199 @@ Para executar este código Java, você precisará de uma classe com o método `m
 
     Este comando primeiro compila o arquivo `Main.java` (criando `Main.class` e `Solution.class`) e, se a compilação for bem-sucedida, executa o programa usando a classe `Main`.
 -----
+
+-----
+
+## Roman to Integer
+
+Este repositório apresenta duas soluções para o problema "Roman to Integer" do LeetCode, implementadas em Python e Java. A escolha de duas linguagens visa demonstrar a aplicação de uma mesma lógica algorítmica em diferentes ambientes de programação, ressaltando as semelhanças e pequenas diferenças sintáticas e de estrutura de dados (como dicionários/hash maps) em cada uma. Ambas as soluções utilizam uma abordagem eficiente que processa a string romana de trás para frente.
+
+-----
+
+### Solução implementada em Python
+
+A solução em Python utiliza um **dicionário (hash map)** para mapear cada caractere romano ao seu valor inteiro correspondente. A lógica central da solução consiste em iterar pela string romana de **trás para frente**. Isso é crucial porque permite lidar facilmente com os casos em que um valor menor precede um valor maior (como 'IV' para 4 ou 'IX' para 9). A cada caractere, seu valor é obtido do dicionário. Se o valor atual for menor que o valor do caractere anterior (`prev`), ele é subtraído do total; caso contrário, é adicionado. O valor atual é então salvo como `prev` para a próxima iteração. Essa abordagem garante que os casos de subtração sejam tratados corretamente.
+
+**Lógica:**
+
+```
+- Recebe a string
+- Define curr = 0
+- Define last = 0
+- Define acc = 0
+- Para cada elemento em string do último para o primeiro:
+    - curr = elemento
+    - se curr ≥ last:
+        - acc = acc + curr
+    - se curr < last;
+        - acc = acc - curr
+    - last = curr
+- Retorna acc
+```
+
+**Código:**
+
+```python
+class Solution(object):
+    def romanToInt(self, s):
+        roman_to_int = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
+        curr = 0
+        prev = 0
+        total = 0
+        for char in s[::-1]: # Itera de trás para frente
+            curr = roman_to_int[char]
+            if curr < prev:
+                total -= curr
+            else:
+                total += curr
+            prev = curr
+        return total
+```
+
+**Como executar o código Python:**
+
+1.  Salve o código acima em um arquivo chamado, por exemplo, `roman_to_int_python.py`.
+2.  Para testar a solução, adicione algumas chamadas de teste ao final do arquivo:
+    ```python
+    # Adicione isso ao final do seu arquivo roman_to_int_python.py para testar
+    if __name__ == "__main__":
+        sol = Solution()
+        print(f"Romano 'III' para Inteiro: {sol.romanToInt('III')}")   # Saída esperada: 3
+        print(f"Romano 'LVIII' para Inteiro: {sol.romanToInt('LVIII')}") # Saída esperada: 58
+        print(f"Romano 'MCMXCIV' para Inteiro: {sol.romanToInt('MCMXCIV')}") # Saída esperada: 1994
+    ```
+3.  Abra seu terminal ou prompt de comando.
+4.  Navegue até o diretório onde o arquivo `roman_to_int_python.py` está salvo.
+5.  Execute o script com o comando:
+    ```bash
+    python roman_to_int_python.py
+    ```
+
+-----
+
+### Solução implementada em Java
+
+A solução em Java segue a mesma lógica da versão em Python, utilizando um `HashMap` para armazenar os valores inteiros correspondentes a cada caractere romano. A iteração pela string é feita de **trás para frente** usando um *loop* `for` tradicional. Dentro do *loop*, o valor do caractere atual é obtido do `HashMap`. A mesma condição lógica é aplicada: se o valor atual for menor que o valor do caractere anterior (`previousValue`), ele é subtraído do total; caso contrário, é adicionado. O `previousValue` é então atualizado para o `currentValue` para a próxima iteração. Essa abordagem garante a correta conversão de números romanos, incluindo os casos de subtração.
+
+**Lógica:**
+
+```
+- Recebe a string
+- Define curr = 0
+- Define last = 0
+- Define acc = 0
+- Para cada elemento em string do último para o primeiro:
+    - curr = elemento
+    - se curr ≥ last:
+        - acc = acc + curr
+    - se curr < last;
+        - acc = acc - curr
+    - last = curr
+- Retorna acc
+```
+
+**Código:**
+
+```java
+import java.util.HashMap; // Import necessário para usar HashMap
+
+class Solution {
+    public int romanToInt(String s) {
+        HashMap<Character, Integer> romanToIntMap = new HashMap<>();
+        romanToIntMap.put('I', 1);
+        romanToIntMap.put('V', 5);
+        romanToIntMap.put('X', 10);
+        romanToIntMap.put('L', 50);
+        romanToIntMap.put('C', 100);
+        romanToIntMap.put('D', 500);
+        romanToIntMap.put('M', 1000);
+        
+        int currentValue = 0;
+        int previousValue = 0;
+        int total = 0;
+        
+        for (int i = s.length() - 1; i >= 0; i--) { // Itera de trás para frente
+            char currentChar = s.charAt(i);
+            currentValue = romanToIntMap.get(currentChar);
+            if (currentValue < previousValue) {
+                total -= currentValue;
+            } else {
+                total += currentValue;
+            }
+            previousValue = currentValue;
+        }
+        return total;
+    }
+}
+```
+
+**Como executar o código Java:**
+
+Para executar este código Java, você precisará de uma classe com o método `main` para testar a `Solution` e a importação do `HashMap`.
+
+1.  Crie um arquivo chamado `Main.java` e cole o seguinte código (incluindo a classe `Solution` acima e o import):
+
+    ```java
+    import java.util.HashMap; // Importa a classe HashMap
+
+    class Solution {
+        public int romanToInt(String s) {
+            HashMap<Character, Integer> romanToIntMap = new HashMap<>();
+            romanToIntMap.put('I', 1);
+            romanToIntMap.put('V', 5);
+            romanToIntMap.put('X', 10);
+            romanToIntMap.put('L', 50);
+            romanToIntMap.put('C', 100);
+            romanToIntMap.put('D', 500);
+            romanToIntMap.put('M', 1000);
+            
+            int currentValue = 0;
+            int previousValue = 0;
+            int total = 0;
+            
+            for (int i = s.length() - 1; i >= 0; i--) {
+                char currentChar = s.charAt(i);
+                currentValue = romanToIntMap.get(currentChar);
+                if (currentValue < previousValue) {
+                    total -= currentValue;
+                } else {
+                    total += currentValue;
+                }
+                previousValue = currentValue;
+            }
+            return total;
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Solution sol = new Solution();
+
+            System.out.println("Romano 'III' para Inteiro: " + sol.romanToInt("III"));   // Saída esperada: 3
+            System.out.println("Romano 'LVIII' para Inteiro: " + sol.romanToInt("LVIII")); // Saída esperada: 58
+            System.out.println("Romano 'MCMXCIV' para Inteiro: " + sol.romanToInt("MCMXCIV")); // Saída esperada: 1994
+        }
+    }
+    ```
+
+2.  Abra seu terminal ou prompt de comando.
+
+3.  Navegue até o diretório onde você salvou o arquivo `Main.java`.
+
+4.  Execute o seguinte comando para compilar e executar o código em uma única linha:
+
+    ```bash
+    javac Main.java && java Main
+    ```
+
+    Este comando primeiro compila o arquivo `Main.java` e, se a compilação for bem-sucedida, executa o programa usando a classe `Main`.
+
+-----
