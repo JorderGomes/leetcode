@@ -29,37 +29,10 @@ A solução em Python utiliza a abordagem de **Hash Map**, que oferece uma compl
         - Salvar no hash o elemento atual como chave e seu índice como valor
 ```
 
-**Código:**
-
-```python
-class Solution(object):
-    def twoSum(self, nums, target):
-        hash_map = {}
-        for index, num in enumerate(nums):
-            complement = target - num
-            if complement in hash_map:
-                return [hash_map[complement], index]
-            else:
-                hash_map[num] = index
-```
-
 **Como executar o código Python:**
 
 1.  Salve o código acima em um arquivo chamado, por exemplo, `solution_python.py`.
 2.  Para testar, você pode adicionar algumas chamadas de teste ao final do arquivo, ou simplesmente copiar a classe para um ambiente de execução LeetCode ou um *notebook* Python.
-    Exemplo de uso em um script:
-    ```python
-    # Adicione isso ao final do seu arquivo solution_python.py para testar
-    if __name__ == "__main__":
-        sol = Solution()
-        nums1 = [2, 7, 11, 15]
-        target1 = 9
-        print(f"Input: {nums1}, Target: {target1} -> Output: {sol.twoSum(nums1, target1)}") # Saída esperada: [0, 1]
-
-        nums2 = [3, 2, 4]
-        target2 = 6
-        print(f"Input: {nums2}, Target: {target2} -> Output: {sol.twoSum(nums2, target2)}") # Saída esperada: [1, 2]
-    ```
 3.  Abra seu terminal ou prompt de comando.
 4.  Navegue até o diretório onde o arquivo `solution_python.py` está salvo.
 5.  Execute o script com o comando:
@@ -83,23 +56,6 @@ A solução em Java emprega a abordagem de **Força Bruta** (Brute Force), que t
 - Se nenhum par for encontrado, retorna um array com zeros
 ```
 
-**Código:**
-
-```java
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++){
-            for (int j = i + 1; j < nums.length; j++){
-                if (nums[i] + nums[j] == target){
-                    return new int[]{i, j};
-                }
-            }
-        }
-        return new int[]{0, 0};
-    }
-}
-```
-
 **Como executar o código Java:**
 
 Para executar este código Java, você precisará de uma classe com o método `main` para testar a `Solution`.
@@ -107,19 +63,6 @@ Para executar este código Java, você precisará de uma classe com o método `m
 1.  Crie um arquivo chamado `Main.java` e cole o seguinte código (incluindo a classe `Solution` acima):
 
     ```java
-    class Solution {
-        public int[] twoSum(int[] nums, int target) {
-            for (int i = 0; i < nums.length; i++){
-                for (int j = i + 1; j < nums.length; j++){
-                    if (nums[i] + nums[j] == target){
-                        return new int[]{i, j};
-                    }
-                }
-            }
-            return new int[]{0, 0};
-        }
-    }
-
     public class Main {
         public static void main(String[] args) {
             Solution sol = new Solution();
@@ -160,17 +103,6 @@ Este repositório apresenta duas soluções para o problema "Palindrome Number" 
 
 A solução em Python adota uma abordagem direta e elegante, tirando proveito da flexibilidade da linguagem para manipulação de **strings**. Primeiro, verifica se o número `x` é negativo; se for, retorna `False` imediatamente, pois números negativos não podem ser palíndromos (o sinal `-` quebra a simetria). Em seguida, converte o número `x` para uma string. A parte central da solução é o fatiamento `[::-1]`, que cria uma versão invertida da string. Essa string invertida é então convertida de volta para um inteiro. Finalmente, compara-se o número original `x` com sua versão invertida. Se forem iguais, o número é um palíndromo.
 
-**Código:**
-
-```python
-class Solution(object):
-    def isPalindrome(self, x):
-        if x < 0:
-            return False
-        reversed_x = int(str(x)[::-1])
-        return x == reversed_x
-```
-
 **Como executar o código Python:**
 
 1.  Salve o código acima em um arquivo chamado, por exemplo, `palindrome_python.py`.
@@ -197,26 +129,6 @@ class Solution(object):
 
 A solução em Java resolve o problema utilizando exclusivamente **operações aritméticas**, sem converter o número para uma string. Assim como na solução Python, ela primeiro verifica se o número é negativo, retornando `false` nesse caso. A lógica principal envolve construir o número reverso dígito por dígito. Isso é feito em um *loop* `while`: a cada iteração, o último dígito do `original_x` é extraído usando o operador de módulo (`% 10`). Esse dígito é então adicionado ao `reversed_x`, que é construído multiplicando-o por 10 e adicionando o novo dígito. Por fim, o `original_x` é reduzido dividindo-o por 10 (divisão inteira). O *loop* continua até que `original_x` se torne 0. Ao final, o número original é comparado com o `reversed_x` para determinar se é um palíndromo.
 
-**Código:**
-
-```java
-class Solution {
-    public boolean isPalindrome(int x) {
-        if (x < 0) {
-            return false;
-        }
-        int reversed_x = 0;
-        int original_x = x;
-        while (original_x > 0) {
-            int digit = original_x % 10;
-            reversed_x = reversed_x * 10 + digit;
-            original_x /= 10;
-        }
-        return x == reversed_x;
-    }
-}
-```
-
 **Como executar o código Java:**
 
 Para executar este código Java, você precisará de uma classe com o método `main` para testar a `Solution`.
@@ -224,22 +136,6 @@ Para executar este código Java, você precisará de uma classe com o método `m
 1.  Crie um arquivo chamado `Main.java` e cole o seguinte código (incluindo a classe `Solution` acima):
 
     ```java
-    class Solution {
-        public boolean isPalindrome(int x) {
-            if (x < 0) {
-                return false;
-            }
-            int reversed_x = 0;
-            int original_x = x;
-            while (original_x > 0) {
-                int digit = original_x % 10;
-                reversed_x = reversed_x * 10 + digit;
-                original_x /= 10;
-            }
-            return x == reversed_x;
-        }
-    }
-
     public class Main {
         public static void main(String[] args) {
             Solution sol = new Solution();
@@ -294,33 +190,6 @@ A solução em Python utiliza um **dicionário (hash map)** para mapear cada car
 - Retorna acc
 ```
 
-**Código:**
-
-```python
-class Solution(object):
-    def romanToInt(self, s):
-        roman_to_int = {
-            'I': 1,
-            'V': 5,
-            'X': 10,
-            'L': 50,
-            'C': 100,
-            'D': 500,
-            'M': 1000
-        }
-        curr = 0
-        prev = 0
-        total = 0
-        for char in s[::-1]: # Itera de trás para frente
-            curr = roman_to_int[char]
-            if curr < prev:
-                total -= curr
-            else:
-                total += curr
-            prev = curr
-        return total
-```
-
 **Como executar o código Python:**
 
 1.  Salve o código acima em um arquivo chamado, por exemplo, `roman_to_int_python.py`.
@@ -363,41 +232,6 @@ A solução em Java segue a mesma lógica da versão em Python, utilizando um `H
 - Retorna acc
 ```
 
-**Código:**
-
-```java
-import java.util.HashMap; // Import necessário para usar HashMap
-
-class Solution {
-    public int romanToInt(String s) {
-        HashMap<Character, Integer> romanToIntMap = new HashMap<>();
-        romanToIntMap.put('I', 1);
-        romanToIntMap.put('V', 5);
-        romanToIntMap.put('X', 10);
-        romanToIntMap.put('L', 50);
-        romanToIntMap.put('C', 100);
-        romanToIntMap.put('D', 500);
-        romanToIntMap.put('M', 1000);
-        
-        int currentValue = 0;
-        int previousValue = 0;
-        int total = 0;
-        
-        for (int i = s.length() - 1; i >= 0; i--) { // Itera de trás para frente
-            char currentChar = s.charAt(i);
-            currentValue = romanToIntMap.get(currentChar);
-            if (currentValue < previousValue) {
-                total -= currentValue;
-            } else {
-                total += currentValue;
-            }
-            previousValue = currentValue;
-        }
-        return total;
-    }
-}
-```
-
 **Como executar o código Java:**
 
 Para executar este código Java, você precisará de uma classe com o método `main` para testar a `Solution` e a importação do `HashMap`.
@@ -406,35 +240,6 @@ Para executar este código Java, você precisará de uma classe com o método `m
 
     ```java
     import java.util.HashMap; // Importa a classe HashMap
-
-    class Solution {
-        public int romanToInt(String s) {
-            HashMap<Character, Integer> romanToIntMap = new HashMap<>();
-            romanToIntMap.put('I', 1);
-            romanToIntMap.put('V', 5);
-            romanToIntMap.put('X', 10);
-            romanToIntMap.put('L', 50);
-            romanToIntMap.put('C', 100);
-            romanToIntMap.put('D', 500);
-            romanToIntMap.put('M', 1000);
-            
-            int currentValue = 0;
-            int previousValue = 0;
-            int total = 0;
-            
-            for (int i = s.length() - 1; i >= 0; i--) {
-                char currentChar = s.charAt(i);
-                currentValue = romanToIntMap.get(currentChar);
-                if (currentValue < previousValue) {
-                    total -= currentValue;
-                } else {
-                    total += currentValue;
-                }
-                previousValue = currentValue;
-            }
-            return total;
-        }
-    }
 
     public class Main {
         public static void main(String[] args) {
@@ -458,5 +263,154 @@ Para executar este código Java, você precisará de uma classe com o método `m
     ```
 
     Este comando primeiro compila o arquivo `Main.java` e, se a compilação for bem-sucedida, executa o programa usando a classe `Main`.
+
+-----
+
+-----
+
+## Add Two Numbers
+
+Este repositório apresenta duas soluções para o problema "Add Two Numbers" do LeetCode, implementadas em Python e Java. O propósito de ter duas versões é demonstrar como a lógica para somar dois números representados por listas encadeadas (onde os dígitos estão em ordem reversa) pode ser adaptada e expressa em diferentes paradigmas de linguagem. Ambas as soluções utilizam a mesma abordagem fundamental de iteração dígito a dígito, gerenciando o "vai um" (carry), mas as nuances de cada linguagem (como a manipulação de nós de lista e a forma de lidar com referências nulas) são exploradas.
+
+-----
+
+### Solução implementada em Python
+
+A solução em Python manipula as **listas encadeadas** simulando a soma manual de números. Ela cria um nó `result` inicial (um nó "dummy" ou cabeça fictícia) para simplificar a adição dos primeiros dígitos da soma, e um ponteiro `elem` que avança pela nova lista à medida que os dígitos são calculados. A iteração ocorre enquanto houver dígitos restantes em qualquer uma das listas de entrada (`l1` ou `l2`) ou enquanto houver um `carry` (vai um) da soma anterior. A cada passo, os valores dos nós atuais são somados junto com o `carry`. O novo `carry` é calculado usando divisão inteira (`// 10`), e o dígito a ser adicionado à nova lista é obtido com o operador de módulo (`% 10`). Os ponteiros `l1` e `l2` avançam para o próximo nó, se existirem. No final, o método retorna `result.next`, ignorando o nó "dummy" inicial.
+
+**Como executar o código Python:**
+
+Para executar este código, você precisará simular a estrutura `ListNode`. Aqui está um exemplo de como você pode fazer isso em um script Python:
+
+1.  Salve o código acima (incluindo a definição da classe `ListNode`) em um arquivo chamado, por exemplo, `add_two_numbers_python.py`.
+2.  Adicione o seguinte bloco de teste no final do arquivo para criar as listas de entrada e chamar a solução:
+    ```python
+    # Função auxiliar para criar ListNode a partir de uma lista Python
+    def create_linked_list(arr):
+        head = ListNode(0)
+        current = head
+        for val in arr:
+            current.next = ListNode(val)
+            current = current.next
+        return head.next
+
+    # Função auxiliar para converter ListNode para uma lista Python (para visualização)
+    def linked_list_to_list(node):
+        arr = []
+        while node:
+            arr.append(node.val)
+            node = node.next
+        return arr
+
+    if __name__ == "__main__":
+        sol = Solution()
+
+        # Exemplo 1: 342 + 465 = 807
+        l1_ex1 = create_linked_list([2, 4, 3])
+        l2_ex1 = create_linked_list([5, 6, 4])
+        result1 = sol.addTwoNumbers(l1_ex1, l2_ex1)
+        print(f"Input: [2,4,3] + [5,6,4] -> Output: {linked_list_to_list(result1)}") # Saída esperada: [7, 0, 8]
+
+        # Exemplo 2: 0 + 0 = 0
+        l1_ex2 = create_linked_list([0])
+        l2_ex2 = create_linked_list([0])
+        result2 = sol.addTwoNumbers(l1_ex2, l2_ex2)
+        print(f"Input: [0] + [0] -> Output: {linked_list_to_list(result2)}") # Saída esperada: [0]
+
+        # Exemplo 3: 9999999 + 9999 = 10009998
+        l1_ex3 = create_linked_list([9,9,9,9,9,9,9])
+        l2_ex3 = create_linked_list([9,9,9,9])
+        result3 = sol.addTwoNumbers(l1_ex3, l2_ex3)
+        print(f"Input: [9,9,9,9,9,9,9] + [9,9,9,9] -> Output: {linked_list_to_list(result3)}") # Saída esperada: [8, 9, 9, 9, 0, 0, 0, 1]
+    ```
+3.  Abra seu terminal ou prompt de comando.
+4.  Navegue até o diretório onde o arquivo `add_two_numbers_python.py` está salvo.
+5.  Execute o script com o comando:
+    ```bash
+    python add_two_numbers_python.py
+    ```
+-----
+
+### Solução implementada em Java
+
+A solução em Java replica a lógica de soma de números representados por **listas encadeadas**, similar à abordagem manual. Ela inicializa um nó `result` (também um nó "dummy" ou cabeça fictícia) e um ponteiro `current` que será usado para construir a nova lista encadeada da soma. Um `carry` é mantido para gerenciar o "vai um" das somas de dígitos. O `while` loop continua enquanto houver nós a serem processados em `l1` ou `l2`, ou se ainda houver um `carry` remanescente. Dentro do loop, os valores dos nós atuais são somados (considerando 0 se o nó for `null`), e o `carry` é atualizado através de uma divisão inteira (`/ 10`). O dígito resultante para o nó atual é obtido pelo operador de módulo (`% 10`), e um novo `ListNode` é criado e anexado à lista resultante. Os ponteiros `l1` e `l2` avançam para o próximo nó, se existirem e não forem `null`. Ao final, `result.next` é retornado para descartar o nó "dummy".
+
+**Como executar o código Java:**
+
+Para executar este código Java, você precisará da definição da classe `ListNode` e de uma classe `Main` com o método `main` para testar.
+
+1.  Crie um arquivo chamado `Main.java` e cole o seguinte código, que inclui a definição de `ListNode` e a classe `Solution` e a `Main`:
+
+    ```java
+    // Definição de ListNode
+    class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    public class Main {
+        // Função auxiliar para criar ListNode a partir de um array de int
+        public static ListNode createLinkedList(int[] arr) {
+            ListNode head = new ListNode(0); // Dummy head
+            ListNode current = head;
+            for (int val : arr) {
+                current.next = new ListNode(val);
+                current = current.next;
+            }
+            return head.next;
+        }
+
+        // Função auxiliar para converter ListNode para String (para visualização)
+        public static String linkedListToString(ListNode node) {
+            StringBuilder sb = new StringBuilder("[");
+            while (node != null) {
+                sb.append(node.val);
+                if (node.next != null) {
+                    sb.append(", ");
+                }
+                node = node.next;
+            }
+            sb.append("]");
+            return sb.toString();
+        }
+
+        public static void main(String[] args) {
+            Solution sol = new Solution();
+
+            // Exemplo 1: 342 + 465 = 807
+            ListNode l1_ex1 = createLinkedList(new int[]{2, 4, 3});
+            ListNode l2_ex1 = createLinkedList(new int[]{5, 6, 4});
+            ListNode result1 = sol.addTwoNumbers(l1_ex1, l2_ex1);
+            System.out.println("Input: [2,4,3] + [5,6,4] -> Output: " + linkedListToString(result1)); // Saída esperada: [7, 0, 8]
+
+            // Exemplo 2: 0 + 0 = 0
+            ListNode l1_ex2 = createLinkedList(new int[]{0});
+            ListNode l2_ex2 = createLinkedList(new int[]{0});
+            ListNode result2 = sol.addTwoNumbers(l1_ex2, l2_ex2);
+            System.out.println("Input: [0] + [0] -> Output: " + linkedListToString(result2)); // Saída esperada: [0]
+
+            // Exemplo 3: 9999999 + 9999 = 10009998
+            ListNode l1_ex3 = createLinkedList(new int[]{9,9,9,9,9,9,9});
+            ListNode l2_ex3 = createLinkedList(new int[]{9,9,9,9});
+            ListNode result3 = sol.addTwoNumbers(l1_ex3, l2_ex3);
+            System.out.println("Input: [9,9,9,9,9,9,9] + [9,9,9,9] -> Output: " + linkedListToString(result3)); // Saída esperada: [8, 9, 9, 9, 0, 0, 0, 1]
+        }
+    }
+    ```
+
+2.  Abra seu terminal ou prompt de comando.
+
+3.  Navegue até o diretório onde você salvou o arquivo `Main.java`.
+
+4.  Execute o seguinte comando para compilar e executar o código em uma única linha:
+
+    ```bash
+    javac Main.java && java Main
+    ```
+
+    Este comando primeiro compila o arquivo `Main.java` (criando `Main.class` e `Solution.class`, além de `ListNode.class`) e, se a compilação for bem-sucedida, executa o programa usando a classe `Main`.
 
 -----
