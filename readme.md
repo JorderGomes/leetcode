@@ -9,3 +9,4 @@ Este repositório serve como um **caderno de estudos e um laboratório prático*
 | 13 | [Roman to integer](https://leetcode.com/problems/roman-to-integer?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D) | python, java | Easy |
 | 2 | [Add two numbers](https://leetcode.com/problems/add-two-numbers?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D) | python, java | Medium |
 | 3 | [Longest substring](https://leetcode.com/problems/longest-substring-without-repeating-characters?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D) | python, java | Medium |
+| 20 | [Valid parentheses](https://leetcode.com/problems/valid-parentheses) | python, java | Easy |
