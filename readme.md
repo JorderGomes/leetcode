@@ -11,4 +11,4 @@ Este repositório serve como um **caderno de estudos e um laboratório prático*
 | 3 | [Longest substring](https://leetcode.com/problems/longest-substring-without-repeating-characters?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D) | Medium |
 | 20 | [Valid parentheses](https://leetcode.com/problems/valid-parentheses) | Easy |
 | 26 | [Remove Duplicates](https://leetcode.com/problems/remove-duplicates-from-sorted-array) | Easy |
-| 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer) | Medium |
+| 704 | [Binary search](https://leetcode.com/problems/binary-search/description/) | Easy |
