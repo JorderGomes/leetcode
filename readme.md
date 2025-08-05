@@ -12,3 +12,4 @@ Este repositório serve como um **caderno de estudos e um laboratório prático*
 | 20 | [Valid parentheses](https://leetcode.com/problems/valid-parentheses) | Easy |
 | 26 | [Remove Duplicates](https://leetcode.com/problems/remove-duplicates-from-sorted-array) | Easy |
 | 704 | [Binary search](https://leetcode.com/problems/binary-search/description/) | Easy |
+| 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/) | Medium |
