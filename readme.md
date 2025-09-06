@@ -17,3 +17,4 @@ Este repositório serve como um **caderno de estudos e um laboratório prático*
 | 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/description/) | Medium | java |
 | 4  | [Median of two sorted arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/) | Hard | java |
 | 137 | [Single number](https://leetcode.com/problems/single-number-ii/description/) | Medium | java |
+| 66  | [Plus One](https://leetcode.com/problems/plus-one/description/) | Easy | java |
