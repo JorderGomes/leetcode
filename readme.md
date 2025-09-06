@@ -15,3 +15,4 @@ Este repositório serve como um **caderno de estudos e um laboratório prático*
 | 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/) | Medium | python, java |
 | 58 | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/) | Easy | python, java |
 | 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/description/) | Medium | java |
+| 4  | [Median of two sorted arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/) | Hard | java |
